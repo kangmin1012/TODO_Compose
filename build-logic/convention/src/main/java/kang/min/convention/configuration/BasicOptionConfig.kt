@@ -2,8 +2,10 @@ package kang.min.convention.configuration
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
-import org.gradle.api.plugins.ExtensionAware
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import org.gradle.api.plugins.ExtensionContainer
+import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 internal fun CommonExtension<*, *, *, *, *, *>.configBasicOption() {
     compileSdk = 34
@@ -18,15 +20,15 @@ internal fun CommonExtension<*, *, *, *, *, *>.configBasicOption() {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_18.toString()
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
-private fun CommonExtension<*, *, *, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
-    (this as ExtensionAware).extensions.configure("kotlinOptions", block)
+internal fun ExtensionContainer.setJvmTarget() {
+    this.getByType<KotlinAndroidProjectExtension>().apply {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
 }

@@ -3,6 +3,7 @@ package kang.min.convention.plugin
 import com.android.build.api.dsl.LibraryExtension
 import kang.min.convention.DependencyUnitValue
 import kang.min.convention.configuration.configBasicOption
+import kang.min.convention.configuration.setJvmTarget
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -23,7 +24,7 @@ internal class AndroidLibraryPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                configBasicOption()
+                compileSdk = 34
 
                 defaultConfig {
                     consumerProguardFiles("consumer-rules.pro")
@@ -39,6 +40,7 @@ internal class AndroidLibraryPlugin : Plugin<Project> {
                     }
                 }
             }
+            extensions.setJvmTarget()
 
             dependencies {
                 with(DependencyUnitValue) {

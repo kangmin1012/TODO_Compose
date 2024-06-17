@@ -10,6 +10,7 @@ java {
 dependencies {
     compileOnly(libs.androidGradlePlugin)
     compileOnly(libs.kotlinGradlePlugin)
+    compileOnly(libs.composeCompilerExtension)
 }
 
 gradlePlugin {

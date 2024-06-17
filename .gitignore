@@ -1,3 +1,7 @@
+# Base ignore
+.DS_Store
+.kotlin/
+
 # Gradle files
 .gradle/
 build/

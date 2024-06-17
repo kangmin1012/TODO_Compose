@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.ir.backend.js.compile
+
 plugins {
     id("kangmingu.plugin.library")
     id("kangmingu.plugin.hilt")

@@ -5,12 +5,14 @@ import kang.min.convention.DependencyUnitValue
 import kang.min.convention.configuration.configBasicOption
 import kang.min.convention.configuration.configureApplicationBuildType
 import kang.min.convention.configuration.configureApplicationDefault
+import kang.min.convention.configuration.setJvmTarget
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 internal class AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -25,12 +27,13 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.kapt")
             }
 
+
             extensions.configure<ApplicationExtension> {
                 namespace = "kang.min.gu"
-
                 configureApplicationDefault()
                 configureApplicationBuildType()
                 configBasicOption()
+
 
                 packaging {
                     resources {
@@ -38,6 +41,7 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
                     }
                 }
             }
+            extensions.setJvmTarget()
 
             dependencies { // 의존성 library 세팅
                 with(DependencyUnitValue) {

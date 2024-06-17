@@ -6,15 +6,30 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 
 
 internal fun Project.configureAndroidCompose(
     commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
-    commonExtension.configComposeOption()
-
     commonExtension.apply {
         val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+        buildFeatures {
+            compose = true
+        }
+
+        extensions.getByType<ComposeCompilerGradlePluginExtension>().apply {
+            enableStrongSkippingMode.set(true)
+            includeSourceInformation.set(true)
+
+            reportsDestination.set(
+                layout.buildDirectory.dir("compose_compiler")
+            )
+//            stabilityConfigurationFile.set(
+//                rootProject.layout.projectDirectory.file("stability_config.conf")
+//            )
+        }
 
         dependencies {
             DependencyUnitValue.implementation(libs.findLibrary("androidx.activity.compose").get())
@@ -26,16 +41,4 @@ internal fun Project.configureAndroidCompose(
             DependencyUnitValue.androidTestImplementation(composeBom)
         }
     }
-}
-
-private fun CommonExtension<*, *, *, *, *, *>.configComposeOption() {
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.9.22"
-    }
-
 }
