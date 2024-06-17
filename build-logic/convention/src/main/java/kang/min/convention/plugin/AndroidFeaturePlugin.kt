@@ -21,7 +21,9 @@ internal class AndroidFeaturePlugin  : Plugin<Project> {
 
             dependencies {
                 with(DependencyUnitValue) {
-
+                    implementation(project(":core:domain"))
+                    implementation(project(":core:model"))
+                    implementation(project(":core:ui"))
                 }
             }
         }

@@ -12,3 +12,7 @@ buildscript {
         classpath(libs.hiltPlugin)
     }
 }
+
+apply {
+    from("gradle/dependencyGraph.gradle")
+}

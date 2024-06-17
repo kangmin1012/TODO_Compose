@@ -6,5 +6,5 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
+    implementation(project(":feature:todo"))
 }

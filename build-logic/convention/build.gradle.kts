@@ -34,6 +34,11 @@ gradlePlugin {
             implementationClass = "kang.min.convention.plugin.AndroidLibraryComposePlugin"
         }
 
+        register("AndroidFeaturePlugin") {
+            id = "kangmingu.plugin.feature"
+            implementationClass = "kang.min.convention.plugin.AndroidFeaturePlugin"
+        }
+
         register("HiltPlugin") {
             id = "kangmingu.plugin.hilt"
             implementationClass = "kang.min.convention.plugin.HiltPlugin"

@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KangminguProject"
+rootProject.name = "KangminguTodo"
 include(":app")
 include(":core:domain")
 include(":core:data")
@@ -29,3 +29,4 @@ include(":core:network")
 include(":core:model")
 include(":core:datastore")
 include(":core:ui")
+include(":feature:todo")
