@@ -6,6 +6,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.project
 
 internal class AndroidFeaturePlugin  : Plugin<Project> {
     override fun apply(target: Project) {
@@ -24,6 +25,7 @@ internal class AndroidFeaturePlugin  : Plugin<Project> {
                     implementation(project(":core:domain"))
                     implementation(project(":core:model"))
                     implementation(project(":core:ui"))
+                    implementation(project(":core:navigation"))
                 }
             }
         }

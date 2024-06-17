@@ -4,17 +4,20 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import kang.min.navigation.Todo
+import kang.min.navigation.Destination
 import kang.min.todo.TodoScreen
 
 @Composable
 fun MainNavHost(
-    navController: NavHostController
+    navController: NavHostController,
+    startDestination: Destination
 ) {
     NavHost(
         navController = navController,
-        startDestination = "Todo"
+        startDestination = startDestination.route
     ) {
-        composable("Todo") {
+        composable(Todo.route) {
             TodoScreen()
         }
     }

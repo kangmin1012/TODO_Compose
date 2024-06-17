@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import kang.min.gu.navigation.MainNavHost
+import kang.min.navigation.Todo
 
 @Composable
 internal fun MainScreen(
@@ -16,6 +17,9 @@ internal fun MainScreen(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        MainNavHost(navigator)
+        MainNavHost(
+            navigator,
+            Todo
+        )
     }
 }
