@@ -12,7 +12,6 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
-import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 internal class AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -52,8 +51,6 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
                     testImplementation(libs.findLibrary("junit").get())
 
                     androidTestImplementation((libs.findBundle("test").get()))
-
-                    debugImplementation (libs.findBundle("debug.test").get())
                 }
             }
         }

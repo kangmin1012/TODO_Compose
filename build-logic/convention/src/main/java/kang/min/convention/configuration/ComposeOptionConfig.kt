@@ -26,9 +26,6 @@ internal fun Project.configureAndroidCompose(
             reportsDestination.set(
                 layout.buildDirectory.dir("compose_compiler")
             )
-//            stabilityConfigurationFile.set(
-//                rootProject.layout.projectDirectory.file("stability_config.conf")
-//            )
         }
 
         dependencies {
@@ -39,6 +36,7 @@ internal fun Project.configureAndroidCompose(
             DependencyUnitValue.implementation(libs.findLibrary("compose.navigation").get())
 
             DependencyUnitValue.androidTestImplementation(composeBom)
+            DependencyUnitValue.debugImplementation(libs.findBundle("debug.test").get())
         }
     }
 }
