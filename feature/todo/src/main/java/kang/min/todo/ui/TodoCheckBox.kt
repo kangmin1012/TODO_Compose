@@ -1,6 +1,5 @@
 package kang.min.todo.ui
 
-import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
@@ -47,7 +46,7 @@ internal fun TodoCheckBox() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
 private fun TodoCheckBoxPreview() {
     TodoTheme {

@@ -1,19 +1,18 @@
-package kang.min.todo
+package kang.min.todo.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import kang.min.todo.ui.TodoCheckBox
 import kang.min.ui.theme.TodoTheme
 
 @Composable
-fun TodoScreen() {
-    TodoCheckBox()
+internal fun TodoWriteButton() {
+
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun TodoScreenPreview() {
+private fun TodoWriteButtonPreview() {
     TodoTheme {
-        TodoScreen()
+        TodoWriteButton()
     }
 }

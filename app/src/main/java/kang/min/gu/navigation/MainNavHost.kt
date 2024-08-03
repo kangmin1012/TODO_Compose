@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import kang.min.navigation.Todo
 import kang.min.navigation.Destination
 import kang.min.todo.TodoScreen
 
@@ -15,9 +14,9 @@ fun MainNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination.route
+        startDestination = startDestination
     ) {
-        composable(Todo.route) {
+        composable<Destination.Todo> {
             TodoScreen()
         }
     }

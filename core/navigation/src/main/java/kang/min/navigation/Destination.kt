@@ -1,10 +1,9 @@
 package kang.min.navigation
 
-interface Destination {
-    val route: String
+import kotlinx.serialization.Serializable
+
+sealed interface Destination {
+    @Serializable
+    data object Todo : Destination
 }
 
-object Todo : Destination {
-    override val route: String
-        get() = "Todo"
-}
