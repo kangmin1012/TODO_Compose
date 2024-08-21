@@ -46,7 +46,7 @@ internal fun TodoCheckBox() {
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Preview(showBackground = true)
 @Composable
 private fun TodoCheckBoxPreview() {
     TodoTheme {

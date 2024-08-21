@@ -33,6 +33,14 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
                 configureApplicationBuildType()
                 configBasicOption()
 
+                sourceSets {
+                    getByName("main") {
+                        java {
+                            manifest.srcFile("src/main/AndroidManifest.xml")
+                        }
+                    }
+                }
+
 
                 packaging {
                     resources {
